@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">Elevate Your Natural Beauty</h1>
+        <p class="hero-subtitle">Curated skincare and makeup for the modern individual</p>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Collection</h2>
+            <p class="section-subtitle">Handpicked favorites for your daily ritual</p>
+        </div>
+        
+        <div class="products-grid">
+            {% for product in products %}
+            <article class="product-card">
+                <a href="{{ url_for('product_detail', product_id=product.id) }}" class="product-link">
+                    <div class="product-image-wrapper">
+                        <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image" loading="lazy">
+                        {% if product.tag %}
+                        <span class="product-tag">{{ product.tag }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">{{ product.category }}</span>
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <p class="product-price">₹{{ "%.2f"|format(product.price) }}</p>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+
+          <div class="coming-soon" style="text-align: center; margin-top: 4rem; padding: 3rem; background: white; border-radius: 16px; border: 2px dashed var(--color-border);">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">More Products Coming Soon</h3>
+            <p style="color: var(--color-secondary);">We're adding new styles daily. Check back tomorrow!</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

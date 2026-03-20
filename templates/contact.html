@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - GlowStyle{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h1>Get in Touch</h1>
+                <p>Have questions about sizing, shipping, or bulk orders? We're here to help.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <strong>WhatsApp</strong>
+                        <p>Fastest response</p>
+                        <a href="https://wa.me/8958595983" class="btn-whatsapp-small">Chat on WhatsApp</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <p>support@glowstyle.com</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Working Hours</strong>
+                        <p>Mon-Sat: 10AM - 8PM IST</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <h2>Send Message</h2>
+                <form action="https://formspree.io/f/mojkbrzr" method="POST" class="contact-form">
+
+                    <!-- This line goes here -->
+                    <input type="hidden" name="_next" value="http://localhost:5000/thanks">
+                    <!-- Honeypot to prevent spam -->
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <!-- Redirect after submission (optional - remove if you want default Formspree thank you page) -->
+                    <input type="hidden" name="_next" value="http://localhost:5000/">
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+                    <textarea name="message"
+                        placeholder="How can we help you? Ask about sizes, delivery, bulk orders..." rows="4"
+                        required></textarea>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+                <p style="font-size: 0.85rem; color: var(--color-secondary); margin-top: 1rem; text-align: center;">
+                    🔒 Your information is secure. We typically reply within 2 hours.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
