@@ -1,46 +1,49 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}About Us - GlowStyle{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GlowStyle{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 
-{% block content %}
-<section class="about-hero">
-    <div class="container">
-        <h1 class="about-title">Curated Style for Modern Men</h1>
-        <p class="about-subtitle">Premium fashion without the premium price tag</p>
-    </div>
-</section>
-
-<section class="about-content">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>Our Story</h2>
-                <p>GlowStyle was born from a simple idea: every man deserves to look sharp without breaking the bank. We handpick trending styles from across India, focusing on quality fabrics, perfect fits, and prices that make sense.</p>
-                
-                <h2>Why Choose Us?</h2>
-                <ul class="feature-list">
-                    <li>✓ Direct sourcing = Better prices</li>
-                    <li>✓ Quality checked before shipping</li>
-                    <li>✓ Sizes that actually fit Indian men</li>
-                    <li>✓ Cash on delivery available</li>
-                </ul>
-            </div>
-            
-            <div class="about-stats">
-                <div class="stat-box">
-                    <span class="stat-number">14+</span>
-                    <span class="stat-label">Products</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Quality Checked</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">Pan India</span>
-                    <span class="stat-label">Shipping</span>
-                </div>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="GlowStyle"
+                    style="height: 95px; width: auto;">
+                <!-- <span class="logo-text">GlowStyle</span> -->
+            </a>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Shop</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
             </div>
         </div>
-    </div>
-</section>
-{% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 GlowStyle. Crafted with care.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <a href="https://wa.me/918958595983?text=I want to order" class="whatsapp-float">
+        Chat
+    </a>
+</body>
+
+</html>
